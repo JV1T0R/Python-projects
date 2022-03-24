@@ -1,0 +1,9 @@
+lista = []
+soma = 0
+for x in range(4):
+    n = int(input("informe elemento [x]:"))
+    lista.append(n)
+    soma += n
+    
+print(lista)
+print(soma)
