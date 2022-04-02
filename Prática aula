@@ -1,0 +1,5 @@
+diagonal=float(input("digite a medida diagonal do terreno"))
+lateral=float(input("digite a medida lateral do terreno"))
+
+area = lado * largura
+print("area: ", area,)
