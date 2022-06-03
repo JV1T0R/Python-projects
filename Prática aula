@@ -1,5 +1,0 @@
-diagonal=float(input("digite a medida diagonal do terreno"))
-lateral=float(input("digite a medida lateral do terreno"))
-
-area = diagonal * lateral 
-print("area: ", area,)
