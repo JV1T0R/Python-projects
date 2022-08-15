@@ -1,0 +1,36 @@
+print("Bem vindo ao sistema de cadastro de alunos!")
+
+alunos = []
+
+opcao = 0
+while opcao != 6:
+    print('''    [1] Create
+    [2] Read
+    [3] Update
+    [4] Delete
+    [5] Save
+    [6] Finalizar cadastro''')
+    opcao = int(input("insira o número da opção para executa-la: "))
+
+#[1] Create: inserir o elemento na lista.
+    if opcao == 1:
+
+#[2]Read: mostrar a lista.
+    elif opcao == 2:
+
+#[3]Update: alterar elemento da lista.
+    elif opcao == 3:
+
+#[4]Delete: apagar elemento da lista.
+    elif opcao == 4:
+
+#[5] Save: salva a lista atual para um documento txt
+    elif opcao == 5:
+        arquivo = open("lista-alunos", "w")
+        arquivo.write(alunos)
+
+    elif opcao == 6:
+        print("Finalizando...")
+
+    else:
+        print("Opção inválida. Tente novamente.")
