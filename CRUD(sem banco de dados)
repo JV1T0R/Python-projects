@@ -4,28 +4,26 @@ aluno = []
 alunos = []
 
 opcao = 0
-while opcao != 6:
+while opcao != 5:
     print('''    [1] Create
     [2] Read
     [3] Update
     [4] Delete
-    [5] Save
-    [6] Finalizar cadastro''')
+    [5] Save & Exit''')
     opcao = int(input("insira o número da opção para executa-la: "))
 
-#[1] Create: inserir o elemento na lista.
+    # [1] Create: inserir o elemento na lista.
     if opcao == 1:
         aluno.append(str(input("Qual o nome completo do aluno? ")))
         aluno.append(int(input("Qual a matrícula do aluno? ")))
         alunos.append(aluno[:])
         aluno.clear()
 
-
-#[2] Read: mostrar a lista.
+    # [2] Read: mostrar a lista.
     elif opcao == 2:
         print(alunos)
 
-#[3] Update: alterar elemento da lista.
+    # [3] Update: alterar elemento da lista.
     elif opcao == 3:
         escolha = 0
         while escolha != 3:
@@ -36,7 +34,7 @@ while opcao != 6:
 
             if escolha == 1:
                 nome_update = str(input("Qual o nome do aluno a ser alterado no cadastro? "))
-                nome_new  = str(input("Qual novo nome a ser inserido no cadastro? "))
+                nome_new = str(input("Qual novo nome a ser inserido no cadastro? "))
 
                 for aluno in alunos:
                     if aluno[0] == nome_update:
@@ -72,25 +70,23 @@ while opcao != 6:
                     else:
                         print("Os dados inseridos não são válidos.")
 
-
-#[4] Delete: apagar elemento da lista.
+    # [4] Delete: apagar elemento da lista.
     elif opcao == 4:
-       nome_delete = str(input("Qual o nome do aluno a ser apagado do cadastro? "))
-       for aluno in alunos:
-           if aluno[0] == nome_delete:
-               alunos.remove(aluno)
-           else:
-               print("O nome inserido não foi encontrado no cadastro. Tente novamente.")
+        nome_delete = str(input("Qual o nome do aluno a ser apagado do cadastro? "))
+        for aluno in alunos:
+            if aluno[0] == nome_delete:
+                alunos.remove(aluno)
+            else:
+                print("O nome inserido não foi encontrado no cadastro. Tente novamente.")
 
-#[5] Save: salva a lista atual para um documento txt.
+    # [5] Save & Exit: Encerra o programa e salva a lista atual para um documento txt.
     elif opcao == 5:
+        stralunos = "".join(map(str, alunos))
         arquivo = open("lista-alunos", "w")
-        arquivo.write(alunos)
+        arquivo.write(stralunos)
 
-#[6] Finalizar cadastro: encerra o programa.
-    elif opcao == 6:
-        print("Finalizando...")
+        print("Salvando informações e encerrando o programa...")
 
-# Aciona se uma opção inválida for digitada.
+    # Aciona se uma opção inválida for digitada.
     else:
         print("Opção inválida. Tente novamente.")
