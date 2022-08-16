@@ -21,27 +21,29 @@ while opcao != 6:
         aluno.clear()
 
 
-# [2]Read: mostrar a lista.
+#[2] Read: mostrar a lista.
     elif opcao == 2:
         print(alunos)
 
-#[3]Update: alterar elemento da lista.
+# [3]Update: alterar elemento da lista.
     elif opcao == 3:
 
-#[4]Delete: apagar elemento da lista.
+#[4] Delete: apagar elemento da lista.
     elif opcao == 4:
        nome = str(input("Qual o nome do aluno a ser apagado do cadastro? "))
        for aluno in alunos:
            if aluno[0] == nome:
                alunos.remove(nome)
 
-#[5] Save: salva a lista atual para um documento txt
+#[5] Save: salva a lista atual para um documento txt.
     elif opcao == 5:
         arquivo = open("lista-alunos", "w")
         arquivo.write(alunos)
 
+#[6] Finalizar cadastro: encerra o programa.
     elif opcao == 6:
         print("Finalizando...")
 
+# Aciona se uma opção inválida for digitada.
     else:
         print("Opção inválida. Tente novamente.")
