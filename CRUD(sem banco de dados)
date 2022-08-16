@@ -1,5 +1,6 @@
 print("Bem vindo ao sistema de cadastro de alunos!")
 
+aluno = []
 alunos = []
 
 opcao = 0
@@ -14,15 +15,25 @@ while opcao != 6:
 
 #[1] Create: inserir o elemento na lista.
     if opcao == 1:
+        aluno.append(str(input("Qual o nome completo do aluno? ")))
+        aluno.append(int(input("Qual a matrícula do aluno? ")))
+        alunos.append(aluno[:])
+        aluno.clear()
 
-#[2]Read: mostrar a lista.
+
+# [2]Read: mostrar a lista.
     elif opcao == 2:
+        print(alunos)
 
 #[3]Update: alterar elemento da lista.
     elif opcao == 3:
 
 #[4]Delete: apagar elemento da lista.
     elif opcao == 4:
+       nome = str(input("Qual o nome do aluno a ser apagado do cadastro? "))
+       for aluno in alunos:
+           if aluno[0] == nome:
+               alunos.remove(nome)
 
 #[5] Save: salva a lista atual para um documento txt
     elif opcao == 5:
