@@ -33,7 +33,7 @@ while opcao != 6:
        nome = str(input("Qual o nome do aluno a ser apagado do cadastro? "))
        for aluno in alunos:
            if aluno[0] == nome:
-               alunos.remove(nome)
+               alunos.remove(aluno)
 
 #[5] Save: salva a lista atual para um documento txt.
     elif opcao == 5:
