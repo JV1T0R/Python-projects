@@ -25,15 +25,59 @@ while opcao != 6:
     elif opcao == 2:
         print(alunos)
 
-# [3]Update: alterar elemento da lista.
+#[3] Update: alterar elemento da lista.
     elif opcao == 3:
+        escolha = 0
+        while escolha != 3:
+            print('''    [1] Nome
+            [2] Mátricula
+            [3] Ambas''')
+            int(input("Qual informação você deseja atualizar no cadastro? "))
+
+            if escolha == 1:
+                nome_update = str(input("Qual o nome do aluno a ser alterado no cadastro? "))
+                nome_new  = str(input("Qual novo nome a ser inserido no cadastro? "))
+
+                if aluno[0] == nome_update:
+                    aluno[0] == nome_new
+
+            elif escolha == 2:
+                matricula_update = int(input("Qual a mátricula a ser alterada no cadastro? "))
+                matricula_new = int(input("Qual a nova mátricula a ser inserida no cadastro? "))
+
+                if aluno[1] == matricula_update:
+                    aluno[1] == matricula_new
+
+            elif escolha == 3:
+                nome_update = str(input("Qual o nome do aluno a ser alterado no cadastro? "))
+                matricula_update = int(input("Qual a mátricula a ser alterada no cadastro? "))
+                nome_new = str(input("Qual novo nome a ser inserido no cadastro? "))
+                matricula_new = int(input("Qual a nova mátricula a ser inserida no cadastro? "))
+
+                if aluno[0] == nome_update:
+                    aluno[0] == nome_new
+
+                if aluno[1] == matricula_update:
+                    aluno[1] == matricula_new
+
+                else:
+                    print("Dados inserídos inválidos. Tente novamente.")
+
+        for aluno in alunos:
+            if aluno[1] == matricula_update:
+                aluno[1] == matricula_update
+            else:
+                print("A mátricula inserida não foi encontrada no cadastro. Tente novamente.")
+
 
 #[4] Delete: apagar elemento da lista.
     elif opcao == 4:
-       nome = str(input("Qual o nome do aluno a ser apagado do cadastro? "))
+       nome_delete = str(input("Qual o nome do aluno a ser apagado do cadastro? "))
        for aluno in alunos:
-           if aluno[0] == nome:
+           if aluno[0] == nome_delete:
                alunos.remove(aluno)
+           else:
+               print("O nome inserido não foi encontrado no cadastro. Tente novamente.")
 
 #[5] Save: salva a lista atual para um documento txt.
     elif opcao == 5:
