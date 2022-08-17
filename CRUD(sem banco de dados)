@@ -27,7 +27,7 @@ while opcao != 5:
     elif opcao == 3:
         escolha = 0
         while escolha != 3:
-            print('''    [1] Nome
+            print('''            [1] Nome
             [2] Mátricula
             [3] Ambas''')
             int(input("Qual informação você deseja atualizar no cadastro? "))
@@ -70,12 +70,16 @@ while opcao != 5:
                     else:
                         print("Os dados inseridos não são válidos.")
 
+            else:
+                print("A opção escolhida é inválida. Tente novamente.")
+
     # [4] Delete: apagar elemento da lista.
     elif opcao == 4:
         nome_delete = str(input("Qual o nome do aluno a ser apagado do cadastro? "))
         for aluno in alunos:
             if aluno[0] == nome_delete:
                 alunos.remove(aluno)
+
             else:
                 print("O nome inserido não foi encontrado no cadastro. Tente novamente.")
 
