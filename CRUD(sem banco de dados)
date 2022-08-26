@@ -78,9 +78,9 @@ while opcao != 5:
 
     # [5] Save & Exit: closes the program and saves the current list to a txt document.
     elif opcao == 5:
-        stralunos = "Mátricula / Nome\n"
+        stralunos = "REGISTROS:\n"
         for aluno in map_alunos.values():
-            stralunos = stralunos + aluno['matricula'] + "/" + aluno['nome'] + "\n"
+            stralunos = stralunos + "Nome: " + aluno['nome'] + " / " + "Matrícula: " + aluno['matricula'] + "\n"
         arquivo = open("lista-alunos", "w")
         arquivo.write(stralunos)
 
