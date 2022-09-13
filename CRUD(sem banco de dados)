@@ -14,6 +14,7 @@ while opcao != 5:
     # [1] Create: inserts an element into the list.
     if opcao == 1:
         print("")
+
         matricula = str(input("Insira a matrícula do aluno que deseja cadastrar: "))
 
         if matricula in map_alunos:
@@ -22,68 +23,49 @@ while opcao != 5:
 
         nome = str(input("Insira o nome do aluno que deseja cadastrar: "))
 
-        map_alunos[matricula] = {
-            'matricula': matricula,
-            'nome': nome}
+        map_alunos[matricula] = {'matricula': matricula, 'nome': nome}
 
     # [2] Read: Shows the list.
     elif opcao == 2:
         print("")
+
+        print("REGISTROS:")
         for aluno in map_alunos.values():
-            print("REGISTROS:\nNome:", aluno['nome'], "/", "Matrícula:", aluno['matricula'])
+            print("Nome:", aluno['nome'], "/", "Matrícula:", aluno['matricula'])
 
     # [3] Update: changes a list element.
     elif opcao == 3:
         print("")
-        escolha = 0
 
-        while escolha != 3:
-            matricula = str(input("Qual a mátricula do aluno a ter o cadstro atualizado: "))
-            nome = str(input("Qual o nome do aluno a ter o cadstro atualizado: "))
+        matricula = str(input("Qual a mátricula do aluno a ter o cadstro atualizado: "))
+        nome = ""
 
-            print('''            [1] Matrícula
-            [2] Nome
-            [3] Voltar ao menu principal''')
-            escolha = int(input("Insira o número da opção que deseja alterar no cadastro: "))
+        if matricula in map_alunos:
+            nome_new = str(input("Insira o novo nome a ser inserida no cadastro: "))
 
-            if escolha == 1:
-                if matricula not in map_alunos:
-                    print("A matrícula inserida não existe no cadastro.")
-                    continue
+            map_alunos[nome] = {'matricula': matricula, 'nome': nome_new}
+            del map_alunos[nome]
+            continue
 
-                matricula_new = str(input("Insira a nova matrícula a ser inserida no cadastro: "))
-                map_alunos[matricula] = {
-                    'matricula': matricula_new,
-                    'nome': nome}
+        print("A matrícula inserida não existe no cadastro,")
 
-            elif escolha == 2:
-                if nome not in map_alunos:
-                    print("O nome inserido não existe no cadastro.")
-                    continue
-
-                nome_new = str(input("Insira o novo nome a ser inserida no cadastro: "))
-                map_alunos[nome] = {
-                    'matricula': matricula,
-                    'nome': nome_new}
-
-            elif escolha == 3:
-                print("Encerrando update e voltando ao menu principal...")
-
-            else:
-                print("Opção inválida. Tente novamente.")
 
     # [4] Delete: erases an element of the list.
     elif opcao == 4:
         print("")
+
         matricula = str(input("Qual a matricula a ser apagada do cadastro? "))
+
         if matricula in map_alunos:
             del map_alunos[matricula]
             continue
-        print("Matricula não existente.")
+
+        print("A matrícula inserida não existe no cadastro,")
 
     # [5] Save & Exit: closes the program and saves the current list to a txt document.
     elif opcao == 5:
         print("")
+
         stralunos = "REGISTROS:\n"
         for aluno in map_alunos.values():
             stralunos = stralunos + "Nome: " + aluno['nome'] + " / " + "Matrícula: " + aluno['matricula'] + "\n"
