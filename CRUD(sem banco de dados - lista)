@@ -1,0 +1,69 @@
+print("Bem vindo ao sistema de cadastro de alunos!")
+
+lista_alunos = []
+
+opcao = 0
+
+while opcao != 5:
+    print('''    [1] Create
+    [2] Read
+    [3] Update
+    [4] Delete
+    [5] Save & Exit''')
+    opcao = int(input("insira o número da opção para executa-la: "))
+
+    # [1] Create: inserts an element into the list.
+    if opcao == 1:
+        print("")
+
+        matricula = input("Qual a matrícula do aluno(a) a ser inserida no cadastro? ")
+
+        for aluno in lista_alunos:
+            if matricula in aluno:
+                print("A matricula inserida já existe no cadastro")
+                continue
+
+        nome = input("Qual o nome do aluno(a) a ser inserido no cadastro? ")
+        lista_alunos.append([nome, matricula])
+
+    # [2] Read: Shows the list.
+    elif opcao == 2:
+        print("")
+
+        print("CADASTROS:")
+        for aluno in lista_alunos:
+            print(f"Nome: {aluno[0]} / Matrícula: {aluno[1]}")
+
+    # [3] Update: changes a list element.
+    elif opcao == 3:
+        print("")
+        matricula = input("Qual a matrícula do aluno(a) a ser alterada no cadastro? ")
+
+    # [4] Delete: erases an element of the list.
+    elif opcao == 4:
+        print("")
+
+        matricula = input("Qual a matrícula do aluno(a) a ser removido do cadastro? ")
+
+        for aluno in lista_alunos:
+            if aluno[1] == matricula:
+                lista_alunos.remove(aluno)
+                continue
+
+        print("A matrícula inserida não existe no cadastro.")
+
+    # [5] Save & Exit: closes the program and saves the current list to a txt document.
+    elif opcao == 5:
+        print("")
+
+        str_alunos = "CADASTROS:\n"
+        for aluno in lista_alunos:
+            str_alunos = str_alunos + "Nome: " + aluno[0] + " / " "Matrícula: " + aluno[1] + "\n"
+
+        str_alunos = "".join(map(str, str_alunos))
+        arquivo = open("lista-alunos.txt", "w")
+        arquivo.write(str_alunos)
+
+    # Shows if an invalid option was typed.
+    else:
+        print("Opção inválida. Tente novamente.")
