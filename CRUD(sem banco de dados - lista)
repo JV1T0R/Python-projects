@@ -23,11 +23,11 @@ while opcao != 7:
         for aluno in lista_alunos:
             if matricula in aluno:
                 print("A matricula inserida já existe no cadastro")
-                continue
-
-        nome = input("Qual o nome do aluno(a) a ser inserido no cadastro? ")
-        curso = input("Qual o curso do aluno(a) a ser inserido no cadastro? ")
-        lista_alunos.append([nome, matricula, curso])
+                break
+        else:
+            nome = input("Qual o nome do aluno(a) a ser inserido no cadastro? ")
+            curso = input("Qual o curso do aluno(a) a ser inserido no cadastro? ")
+            lista_alunos.append([nome, matricula, curso])
 
     # [2] Read: Shows a list item or the all the items in the list.
     elif opcao == 2:
@@ -68,7 +68,7 @@ while opcao != 7:
 
         while escolha != 3:
             print("[1] Nome / [2] Curso / [3] Voltar ao menu principal")
-            escolha = int(input("Qual informação deseja alterar no cadastro?"))
+            escolha = int(input("Qual informação deseja alterar no cadastro? "))
 
             if escolha == 1:
                 print("")
@@ -96,6 +96,9 @@ while opcao != 7:
 
                     print("A matrícula inserida não existe no cadastro.")
 
+            elif escolha == 3:
+                print("")
+
             else:
                 print("Opção inválida.")
 
@@ -108,9 +111,10 @@ while opcao != 7:
         for aluno in lista_alunos:
             if aluno[1] == matricula:
                 lista_alunos.remove(aluno)
-                continue
+                break
 
-        print("A matrícula inserida não existe no cadastro.")
+        else:
+            print("A matrícula inserida não existe no cadastro.")
 
     # [5] Save: saves the current list to a txt document.
     elif opcao == 5:
@@ -142,4 +146,3 @@ while opcao != 7:
     # Shows if an invalid option was typed.
     else:
         print("Opção inválida. Tente novamente.")
-
