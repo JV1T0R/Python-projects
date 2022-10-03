@@ -22,8 +22,9 @@ while opcao != 7:
 
         for aluno in lista_alunos:
             if matricula in aluno:
-                print("A matricula inserida já existe no cadastro")
+                print("A matricula inserida já existe no cadastro.")
                 break
+
         else:
             nome = input("Qual o nome do aluno(a) a ser inserido no cadastro? ")
             curso = input("Qual o curso do aluno(a) a ser inserido no cadastro? ")
@@ -46,10 +47,10 @@ while opcao != 7:
 
                 for aluno in lista_alunos:
                     if aluno[1] == matricula:
-                        print(aluno)
-
-                    else:
-                        print("A matrícula inserida não existe no cadastro.")
+                        print(f"Nome: {aluno[0]} / Matrícula: {aluno[1]} / Curso: {aluno[2]}")
+                        break
+                else:
+                    print("A matrícula inserida não existe no cadastro.")
 
             elif escolha == 2:
                 print("")
@@ -57,6 +58,9 @@ while opcao != 7:
                 print("CADASTROS:")
                 for aluno in lista_alunos:
                     print(f"Nome: {aluno[0]} / Matrícula: {aluno[1]} / Curso: {aluno[2]}")
+
+            elif escolha == 3:
+                print("")
 
             else:
                 print("Opção inválida.")
@@ -79,8 +83,9 @@ while opcao != 7:
                     if aluno[1] == matricula:
                         nome_new = input("Qual o novo nome do aluno(a) a ser inserido no cadastro? ")
                         aluno[0] = nome_new
-                        continue
+                        break
 
+                else:
                     print("A matrícula inserida não existe no cadastro.")
 
             elif escolha == 2:
@@ -92,8 +97,9 @@ while opcao != 7:
                     if aluno[1] == matricula:
                         curso_new = input("Qual o novo curso do aluno(a) a ser inserido no cadastro? ")
                         aluno[2] = curso_new
-                        continue
+                        break
 
+                else:
                     print("A matrícula inserida não existe no cadastro.")
 
             elif escolha == 3:
@@ -120,12 +126,13 @@ while opcao != 7:
     elif opcao == 5:
         print("")
 
-        str_alunos = "CADASTROS:\n"
+        str_aluno = ""
+
         for aluno in lista_alunos:
-            str_alunos = str_alunos + "Nome: " + aluno[0] + " / " "Matrícula: " + aluno[1] + " / " "Curso: " + aluno[2] + "\n"
+            str_aluno = ",".join(map(str, lista_alunos))
 
         with open("lista-alunos.txt", "w") as arquivo:
-            arquivo.write(str_alunos)
+            arquivo.write(str_aluno)
 
         print("Salvando informações para o arquivo txt...")
 
@@ -135,7 +142,10 @@ while opcao != 7:
 
         with open("lista-alunos.txt", "r") as arquivo:
             cadastros = arquivo.read()
-        print(cadastros)
+
+        lista_alunos = eval(cadastros)
+
+        print("Carregando informações...")
 
     # [7] Exit: finishes the program.
     elif opcao == 7:
