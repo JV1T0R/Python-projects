@@ -83,6 +83,7 @@ while opcao != 7:
                     if aluno[1] == matricula:
                         nome_new = input("Qual o novo nome do aluno(a) a ser inserido no cadastro? ")
                         aluno[0] = nome_new
+                        print("Cadastro alterado com sucesso!")
                         break
 
                 else:
@@ -91,12 +92,13 @@ while opcao != 7:
             elif escolha == 2:
                 print("")
 
-                matricula = input("Qual a matricula do aluno(a) a ter o nome alterado no cadastro? ")
+                matricula = input("Qual a matricula do aluno(a) a ter o curso alterado no cadastro? ")
 
                 for aluno in lista_alunos:
                     if aluno[1] == matricula:
                         curso_new = input("Qual o novo curso do aluno(a) a ser inserido no cadastro? ")
                         aluno[2] = curso_new
+                        print("Cadastro alterado com sucesso!")
                         break
 
                 else:
@@ -117,6 +119,7 @@ while opcao != 7:
         for aluno in lista_alunos:
             if aluno[1] == matricula:
                 lista_alunos.remove(aluno)
+                print("Cadastro excluido com sucesso!")
                 break
 
         else:
