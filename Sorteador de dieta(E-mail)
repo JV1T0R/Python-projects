@@ -28,7 +28,7 @@ almoco_sex = almocos()
 outlook = win32.Dispatch("outlook.application")
 email = outlook.CreateItem(0)
 
-email.To = "jvesteves45@gmail.com"
+email.To = "@gmail.com"
 email.subject = "Cardápio da semana"
 email.HTMLBody = f"""
 <p>Olà!</p>
