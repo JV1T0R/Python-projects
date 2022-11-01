@@ -21,7 +21,7 @@ def almocos():
 
 almoco_seg = almocos()
 almoco_ter = almocos()
-almoco_quar = almocos()
+almoco_qua = almocos()
 almoco_qui = almocos()
 almoco_sex = almocos()
 
@@ -47,7 +47,7 @@ email.HTMLBody = f"""
 <hr>
 
 <p>QUARTA:</p>
-<p>{almoco_quar}</p>
+<p>{almoco_qua}</p>
 
 <hr>
 
